@@ -163,12 +163,41 @@ def list_ex3():
 def list_ex4():
     #входные данные
     length = 5
-    a = [createRandomArray(length,0,10) for i in range(length)]
-    b = createRandomArray(length,0,10)
+    matrix = [createRandomArray(length,0,10) for i in range(length)]
+    print('Матрица\n', matrix)
+    vector = createRandomArray(length,0,10)
 
+    #основной код задачи
+    matrixVec = [[x] for x in vector]
+    print('Вектор как матрица\n', matrixVec)
+
+    ''' #корректное умножение матриц друг на друга. Возвращает по правильной размерности
+        # Всегда работает с двумерными матрицами.
+    answer = []
+    for i in range(len(matrix)): #итоговые строки
+        row = []
+        for j in range(len(matrixVec[i])):# итоговые столбцы
+            row.append(sum(matrix[i][k]*matrixVec[k][j] for k in range(len(matrix[i]))))
+        answer.append(row)
+    print('Результат умножения\n',answer)
+    '''
+    answer = []
+    for i in range(len(matrix)): #итоговые строки
+        for j in range(len(matrixVec[i])):# итоговые столбцы
+           answer.append(sum(matrix[i][k]*matrixVec[k][j] for k in range(len(matrix[i]))))
+    print('Результат умножения\n',answer)
+
+    # конец доработки
+    ''' # более корткая версия, но с использованием zip(). Работает как частный случай
     #умножение матрицы на вектор
+    result = []
+    for row in matrix:
+        # Вычисляем скалярное произведение строки матрицы и вектора
+        element = sum(row_j * v_j for row_j, v_j in zip(row, vector))
+        result.append(element)
+    print(result)
+    '''
 
-    pass
 
 def list_ex5():
     '''
