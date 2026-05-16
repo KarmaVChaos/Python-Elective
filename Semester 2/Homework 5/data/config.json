@@ -1,0 +1,8 @@
+{
+  "background_path": "",
+  "objects_path": "",
+  "num_objects": 7,
+  "allow_overlap": false,
+  "image_size": [256, 256],
+  "color_mode": "RGB"
+}
